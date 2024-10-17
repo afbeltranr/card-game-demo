@@ -29,11 +29,11 @@ In this card game, players draw from either a **pile of unknown cards** or a **p
 - The player with the **highest score** loses the round and will start the next round with **one extra card** (making it more difficult to achieve a low score).
 
 ### 📝 Special Rules
-- **Matching a Q**: If a player plays a **Queen (Q)** that matches the last discarded **Q**, they can cut the turn and gain a special power:
+- **Using a Q**: If a player plays a **Queen (Q)** during their turn, they gain a special power:
   - They are allowed to **peek** at one of their own **unknown cards** (face-down).
   - After peeking, they must choose whether to **keep the peeked card** or **exchange it** with a card from the known or unknown decks.
   - Regardless of their decision, they must **exchange a card** after peeking.
-- **Matching a J with a J**: If a player matches the last discarded **Jack (J)** with their own **J**, they cut the next player’s turn and gain a special power:
+- **Using a J**: If a player plays a **Jack (J)** during their turn, they gain a special power:
   - They can **swap one card** from their own set with a card from another player's set.
   - This power can be used strategically if they have knowledge of a high-value card in another player’s hand.
 - These special rules add an element of **strategy** and **timing**, making the game more dynamic and competitive.
@@ -75,9 +75,17 @@ The project is organized to facilitate **data analysis** and **game development*
 card-game-demo/
 │
 ├── README.md                   # Project documentation
+├── data/                       # 📊 Data storage
+│   ├── analysis_results.csv    # Results from data analysis
+│   └── game_logs.csv           # Logs of user actions and choices
+│
+├── dashboard/                  # 📊 Dynamic Dashboard (future milestone)
+│   ├── app.py                  # Python Dash app for visualizing the game state
+│   └── requirements.txt        # Dependencies for the dashboard
+│
 ├── notebooks/                  # 📒 Jupyter Notebooks for experiments and analysis
-│   ├── game_logic.ipynb        # Prototyping game logic
-│   └── data_analysis.ipynb     # Exploring user data and insights
+│   ├── data_analysis.ipynb     # Exploring user data and insights
+│   └── game_logic.ipynb        # Prototyping game logic
 │
 ├── src/                        # 🧑‍💻 Core Python scripts
 │   ├── card.py                 # Card class and deck logic
@@ -88,11 +96,3 @@ card-game-demo/
 │   ├── test_card.py            # Tests for card functionalities
 │   ├── test_game.py            # Tests for game logic and mechanics
 │   └── test_utils.py           # Tests for utility functions
-│
-├── data/                       # 📊 Data storage
-│   ├── game_logs.csv           # Logs of user actions and choices
-│   └── analysis_results.csv    # Results from data analysis
-│
-└── dashboard/                  # 📊 Dynamic Dashboard (future milestone)
-    ├── app.py                  # Python Dash app for visualizing the game state
-    └── requirements.txt        # Dependencies for the dashboard
