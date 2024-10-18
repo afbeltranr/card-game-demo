@@ -18,6 +18,7 @@ def test_draw_card():
     assert isinstance(card, Card)
     assert len(deck.cards) == 51  # After drawing a card, there should be 51 left
 
+# Optional: Include if discard functionality is critical
 def test_discard_pile():
     deck = Deck()
     card = deck.draw_card()

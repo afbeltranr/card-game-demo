@@ -44,7 +44,7 @@ class Player:
             score += self.card_value(card)
         return score
 
-
+from src.card import Deck
 class Game:
     def __init__(self, players):
         self.players = players
