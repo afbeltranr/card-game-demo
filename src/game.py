@@ -5,7 +5,11 @@ class Player:
         self.score = 0
         self.is_active = True  # Indicates whether the player is active
         self.is_winner = False  # Indicates whether the player is the winner
-        
+
+    def deal_initial_hand(self, deck):
+            """Deals initial four cards to the player's hand: 2 face-up and 2 face-down."""
+            self.hand = [deck.draw_card() for _ in range(4)]
+
     def draw_from_deck(self, deck):
         """Draws a card from the deck that is different from the cards in the player's hand."""
         while True:
@@ -45,22 +49,23 @@ class Player:
         return score
 
 from src.card import Deck
+
 class Game:
     def __init__(self, players):
         self.players = players
         self.deck = Deck()
         self.current_turn = 0
         self.game_ended = False
+        self.deal_cards()  # Deal initial cards when the game starts
     
     def deal_cards(self):
         """Deals initial four cards to each player: 2 face-up and 2 face-down."""
         for player in self.players:
-            # Each player gets two known and two unknown cards
+            # Each player gets four cards
             player.hand = [self.deck.draw_card() for _ in range(4)]
     
     def take_turn(self, player):
         """Handles a player's turn: draw, exchange, and manage special rules."""
-        # Example turn logic: choose a card from either the deck or discard pile
         print(f"{player.name}'s turn.")
         # Let's assume player always draws from the deck for now
         drawn_card = player.draw_from_deck(self.deck)
