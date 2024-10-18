@@ -13,6 +13,13 @@ class Deck:
         suits = ['♠', '♣', '♥', '♦']
         values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
         self.cards = [Card(value, suit) for suit in suits for value in values]
+        self.discard_pile = []
 
     def draw_card(self):
         return self.cards.pop()
+
+    def add_to_discard(self, card):
+        self.discard_pile.append(card)
+
+    def top_discard(self):
+        return self.discard_pile[-1] if self.discard_pile else None
