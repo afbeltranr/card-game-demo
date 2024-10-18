@@ -24,8 +24,10 @@ jobs:
         python -m venv venv
         source venv/bin/activate
         pip install -r requirements.txt
+      working-directory: /workspaces/card-game-demo
 
     - name: Run tests
       run: |
         source venv/bin/activate
         pytest tests/
+      working-directory: /workspaces/card-game-demo
