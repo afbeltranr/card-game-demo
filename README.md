@@ -38,6 +38,9 @@ In this card game, players draw from either a **pile of unknown cards** or a **p
   - This power can be used strategically if they have knowledge of a high-value card in another player’s hand.
 - These special rules add an element of **strategy** and **timing**, making the game more dynamic and competitive.
 
+
+A description of the game, definition of the classes for card, deck, player, and game are described, and then a mock-up game is played in the `game_logic.ipynb` notebook available [here](notebooks/game_logic.ipynb).
+
 ## 📚 PACE Methodology
 This project follows the **PACE** methodology, which ensures a structured approach to development:
 
