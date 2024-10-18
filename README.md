@@ -1,6 +1,6 @@
 # 🃏 Card Game Demo Project
 
-[![Python application](https://github.com/afbeltranr/card-game-demo/actions/workflows/python-app.yml/badge.svg)](https://github.com/afbeltranr/card-game-demo/actions/workflows/python-app.yml)
+[![Card creation, deck initialization, drawing function, discard pile](https://github.com/afbeltranr/card-game-demo/actions/workflows/python-app.yml/badge.svg)](https://github.com/afbeltranr/card-game-demo/actions/workflows/python-app.yml)
 
 Welcome to the **Card Game Demo** project! This project aims to build a simple yet engaging card game using Python. The focus is on creating a text-based game that can later be expanded with a dynamic dashboard for visualizations and potentially multiplayer functionality.
 
