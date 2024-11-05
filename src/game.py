@@ -47,6 +47,24 @@ class Player:
         for card in self.hand:
             score += self.card_value(card)
         return score
+        def reveal_card(self, index):
+            """Reveals a face-down card in the player's hand."""
+            if index < 0 or index >= len(self.hand):
+                raise IndexError("Card index out of range")
+            # Assuming face-down cards are represented in a specific way
+            card = self.hand[index]
+            if card.is_face_down:
+                card.is_face_down = False
+            return card
+
+        def fold(self):
+            """Sets the player as inactive and clears their hand."""
+            self.is_active = False
+            self.hand = []
+
+        def declare_winner(self):
+            """Sets the player as the winner."""
+            self.is_winner = True
 
 from src.card import Deck
 
@@ -61,8 +79,7 @@ class Game:
     def deal_cards(self):
         """Deals initial four cards to each player: 2 face-up and 2 face-down."""
         for player in self.players:
-            # Each player gets four cards
-            player.hand = [self.deck.draw_card() for _ in range(4)]
+            player.deal_initial_hand(self.deck)
     
     def take_turn(self, player):
         """Handles a player's turn: draw, exchange, and manage special rules."""
