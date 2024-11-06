@@ -1,34 +1,33 @@
 class Player:
     def __init__(self, name):
         self.name = name
-        self.hand = []  # Contains four cards: two face-up and two face-down
+        self.face_up_hand = []  # Contains face-up cards
+        self.face_down_hand = []  # Contains face-down cards
         self.score = 0
         self.is_active = True  # Indicates whether the player is active
         self.is_winner = False  # Indicates whether the player is the winner
 
     def deal_initial_hand(self, deck):
             """Deals initial four cards to the player's hand: 2 face-up and 2 face-down."""
-            self.hand = [deck.draw_card() for _ in range(4)]
+            self.face_up_hand = [deck.draw_card() for _ in range(2)]
+            self.face_down_hand = [deck.draw_card() for _ in range(2)]
 
     def draw_from_deck(self, deck):
         """Draws a card from the deck that is different from the cards in the player's hand."""
         while True:
             drawn_card = deck.draw_card()
-            if all(drawn_card.value != card.value or drawn_card.suit != card.suit for card in self.hand):
+            if all(drawn_card.value != card.value or drawn_card.suit != card.suit for card in self.face_up_hand + self.face_down_hand):
+                self.face_up_hand.append(drawn_card)
                 return drawn_card
     
     def draw_from_discard(self, deck):
         """Draws the top card from the discard pile."""
         return deck.draw_card()  # Fix: Remove the card from the discard pile
     
-    def exchange_card(self, card_index, new_card):
-        """Exchanges a card in the player's hand with a new card if it lowers the score."""
-        current_card = self.hand[card_index]
-        if self.card_value(new_card) < self.card_value(current_card):
-            self.hand[card_index] = new_card
-            return current_card
-        else:
-            return new_card
+    def exchange_card(self, index, new_card):
+        discarded_card = self.face_up_hand[index]
+        self.face_up_hand[index] = new_card
+        return discarded_card
 
     def card_value(self, card):
         """Returns the value of a card for scoring purposes."""

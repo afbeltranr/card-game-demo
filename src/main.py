@@ -8,7 +8,10 @@ from src.card import Deck, Card
 from src.game import Game, Player
 
 def display_hand(player):
-    print(f"{player.name}'s hand: {[str(card) for card in player.hand]}")
+    face_up_cards = [str(card) for card in player.face_up_hand]
+    face_down_cards = ['■' for _ in player.face_down_hand]
+    hand_display = face_up_cards + face_down_cards
+    print(f"{player.name}'s hand: {hand_display}")
 
 def main():
     print("Welcome to the Card Game Demo!")
